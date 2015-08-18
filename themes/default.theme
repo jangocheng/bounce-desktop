@@ -1,0 +1,10 @@
+{
+	FontFamily:				""Tahoma"",
+	DefaultOpacity:			1.0,
+	NewInstallBackground:	"#E0C2B2",
+	MainFontColor:			"#000000",
+	ButtonHoverColor:		"#DDDDDD",
+	NewInstall:	{
+	
+				}
+}

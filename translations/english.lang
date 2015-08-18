@@ -1,0 +1,14 @@
+{
+	WindowTitle:	"Bounce"
+	NewInstall: {
+					NewIdentityString:		"New Identity",
+					NewIdentitySubText:		"this is my first time using bounce",
+					AddDeviceString:		"Add Device",
+					AddDeviceSubText:		"I have already installed bouce",
+					ResumeDeviceString:		"Resume Device",
+					ResumeDeviceSubText:	"I am resuming a transferred device"
+				},
+	OtherSection: {
+	
+				}
+}
