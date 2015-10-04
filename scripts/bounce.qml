@@ -13,7 +13,7 @@ ApplicationWindow {
     x: (Screen.desktopAvailableWidth/2)-(width/2)
     y: (Screen.desktopAvailableHeight/2)-(height/2)
     visible: true
-    opacity: 0.9//1.0						// BounceTheme.DefaultOpacity
+    opacity: theme.opacity//0.9//1.0						// BounceTheme.DefaultOpacity
     
     // main loader?
 		// load with NewInstall if no db, DeviceLogin if needed, MessageBoard otherwise?

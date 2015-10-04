@@ -1,0 +1,10 @@
+{
+	"Name":			"Terminal",
+	"FontFamily":		"Tahoma",
+	"MainColor":		"#000000",
+	"Opacity":		0.9,
+	"FontColorPrimary":	"#FFFFFF",
+	"FontColorAccent":	"#DDDDDD",
+	"AccentItalics":	true,
+	"HoverColor":		"#505050",
+}

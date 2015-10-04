@@ -4,7 +4,7 @@ import QtQuick.Layouts 1.1
 import QtQuick.Controls.Styles 1.0
 
 Item {
-	property int naturalWidth:	480		// as a fraction of the desktop width/height?
+	property int naturalWidth:	480		// as a fraction of the desktop width/height? (unless window is so small)
 	
 	// Load text from BounceTranslation
 	property string newIdentityString:		"New Identity"									// BounceTranslation.NewInstall.NewIdentityString
@@ -14,16 +14,7 @@ Item {
 	property string resumeDeviceString:		"Resume Device"									// BounceTranslation.NewInstall.ResumeDeviceString
 	property string resumeDeviceSubText:	"I am resuming a transferred device"			// BounceTranslation.NewInstall.ResumeDeviceSubText
 	
-	// Load theme from BounceTheme
-	property string fontFamily:			"Tahoma"
-	property string backgroundColor:	"#000000"
-	property string mainFontColor:		"#FFFFFF"
-	property string subTextColor:		"#DDDDDD"//"#525252"
-	property string mouseoverColor:		"#505050"
-	property string bounceImageColor:	"#888888"//"transparent"	// remove?  replace image with theme instead.  define images in JSON?
-	property bool italicSubtext:		true
-	
-	property string bounceImageSource:			""				// BounceTheme.NewInstall.BounceImageSource
+	property string bounceImageSource:		""				// BounceTheme.NewInstall.BounceImageSource
 	property string newIdentityImageSource:		""
 	property string addDeviceImageSource:		""
 	property string resumeDeviceImageSource:	""
@@ -64,7 +55,7 @@ Item {
 
     Rectangle {
         anchors.fill: parent
-        color: backgroundColor
+        color: theme.mainColor
     }
     
     property alias newIdentityButton: newIdentityButton
@@ -73,16 +64,16 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
 
-		Rectangle {
-			color: bounceImageColor
+	Rectangle {
+	    color: theme.mainColor
             x: 0-width/2
             y: getYFromIndex(0)
             height: getMainHeight() * 1.1
             width: getMainWidth()
-		}
+	}
 
         Image {
-			id: bounceImage
+	    id: bounceImage
             source: "qrc:///../images/bounce.png"
             x: 0-width/2
             y: getYFromIndex(0)
@@ -97,7 +88,7 @@ Item {
             y: getYFromIndex(1)
             width: getMainWidth()
             height: getMainHeight()
-            color: newIdentityButton.containsMouse ? mouseoverColor : "transparent"
+            color: newIdentityButton.containsMouse ? theme.hoverColor : "transparent"
 
             MouseArea {
                id: newIdentityButton
@@ -107,8 +98,8 @@ Item {
 
             Text {
                 text: qsTr(newIdentityString)
-                font.family: fontFamily
-                color: mainFontColor
+                font.family: theme.fontFamily
+                color: theme.fontColorPrimary
                 x: getMainWidth() * 0.01
                 y: getMainHeight() * 0.1
                 width: getMainWidth()-getMainHeight()
@@ -118,9 +109,9 @@ Item {
 
             Text {
                 text: qsTr(newIdentitySubText)
-                font.family: fontFamily
-                font.italic: true
-                color: subTextColor
+                font.family: theme.fontFamily
+                font.italic: theme.accentItalics
+                color: theme.fontColorAccent
                 x: getMainWidth() * 0.02
                 y: getMainHeight() * 0.65
                 width: getMainWidth() - getMainHeight()
@@ -143,7 +134,7 @@ Item {
             y: getYFromIndex(2)
             width: getMainWidth();
             height: getMainHeight();
-            color: joinDevicePoolButton.containsMouse ? mouseoverColor : "transparent"
+            color: joinDevicePoolButton.containsMouse ? theme.hoverColor : "transparent"
 
             MouseArea {
                    id: joinDevicePoolButton
@@ -153,8 +144,8 @@ Item {
 
             Text {
                 text: qsTr(addDeviceString)
-                font.family: fontFamily
-                color: mainFontColor
+                font.family: theme.fontFamily
+                color: theme.fontColorPrimary
                 x: getMainWidth() * 0.01
                 y: getMainHeight() * 0.1
                 width: getMainWidth()-getMainHeight()
@@ -164,9 +155,9 @@ Item {
 
             Text {
                 text: qsTr(addDeviceSubText)
-                font.family: fontFamily
-                font.italic: true
-                color: subTextColor
+                font.family: theme.fontFamily
+                font.italic: theme.accentItalics
+                color: theme.fontColorAccent
                 x: getMainWidth() * 0.02
                 y: getMainHeight() * 0.65
                 width: getMainWidth() - getMainHeight()
@@ -189,7 +180,7 @@ Item {
             y: getYFromIndex(3)
             width: getMainWidth();
             height: getMainHeight();
-            color: restoreDeviceButton.containsMouse ? mouseoverColor : "transparent"
+            color: restoreDeviceButton.containsMouse ? theme.hoverColor : "transparent"
 
             MouseArea {
                    id: restoreDeviceButton
@@ -199,8 +190,8 @@ Item {
 
             Text {
                 text: qsTr(resumeDeviceString)
-                font.family: fontFamily
-                color: mainFontColor
+                font.family: theme.fontFamily
+                color: theme.fontColorPrimary
                 x: getMainWidth() * 0.01
                 y: getMainHeight() * 0.1
                 width: getMainWidth()-getMainHeight()
@@ -210,9 +201,9 @@ Item {
 
             Text {
                 text: qsTr(resumeDeviceSubText)
-                font.family: fontFamily
-                font.italic: true
-                color: subTextColor
+                font.family: theme.fontFamily
+                font.italic: theme.accentItalics
+                color: theme.fontColorAccent
                 x: getMainWidth() * 0.02
                 y: getMainHeight() * 0.65
                 width: getMainWidth() - getMainHeight()
