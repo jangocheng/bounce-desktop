@@ -2,11 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"gopkg.in/qml.v1"
+	"os"
 )
-
-// ~/.go/bin/genqrc ./images/ ./scripts/  && go run bounce.go qrc.go themes.go
 
 func main() {
 	if err := qml.Run(run); err != nil {
@@ -17,19 +15,19 @@ func main() {
 
 func run() error {
 	// if no database exists
-		// create the new database
-		// insert default themes
-		// insert default languages
+	// create the new database
+	// insert default themes
+	// insert default languages
 
 	engine := qml.NewEngine()
 	component, err := engine.LoadFile("qrc:///scripts/bounce.qml")
 	if err != nil {
 		return err
 	}
-	
+
 	//context := engine.Context()
 	//context.SetVar("naturalHeight", 120)	// make a go struct known to QML
-	publishTheme(engine)	
+	publishTheme(engine)
 	window := component.CreateWindow(nil)
 
 	window.Show()
@@ -37,4 +35,3 @@ func run() error {
 	window.Wait()
 	return nil
 }
-
