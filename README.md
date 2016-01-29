@@ -13,10 +13,12 @@ Themes
 
 (basic go-qml mocks so far)
 
-*Default*
+**Default**
+
 ![default](https://i.imgur.com/j0SF58N.png)
 
-*Terminal*
+**Terminal**
+
 ![terminal](https://i.imgur.com/Y9YArVF.png)
 
 License
